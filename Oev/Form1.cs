@@ -18,6 +18,7 @@ namespace Oev
         public Form1()
         {
             InitializeComponent();
+            InitLists();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -33,41 +34,49 @@ namespace Oev
                 ConnectionPoint from = result.From;
                 ConnectionPoint to = result.To;
 
-
-                MessageBox.Show("From: " + from.Station.Name + "\n" +
-                    "Abfahrt: " + validateDateTime(result.From.Departure) + "\n" +
-                                "To: " + to.Station.Name + "\n" +
-                                "Ankunft: " + validateDateTime(result.To.Arrival) + "\n" +
-                                "Length" + result.Duration);
+                Verbindung verbindung = new Verbindung(from, to, result);
 
 
-                Console.WriteLine(result.From.Departure);
+                var item = new ListViewItem(new[] { verbindung.getStartStation(), verbindung.getEndStation(), verbindung.getDeparture(), verbindung.getArrival(), verbindung.getDuration() });
+                
+          
+                LBverbindungen.Items.Add(item);
+
             }
         }
-            private String validateDateTime(String time) {
 
-            DateTimeOffset dateTime = DateTimeOffset.Parse(time);
-            String result = dateTime.ToString();
 
-            result = result.Split('+')[0];
-
-            return result;
-            }
-
-        private String validateDuration(String duration)
+    
+        private void InitLists()
         {
-            String days = duration.Split('d')[0];
-            
+            LBverbindungen.View = View.Details;
+            LBverbindungen.Columns.Add("Von", 150, HorizontalAlignment.Center);
+            LBverbindungen.Columns.Add("Nach", 150, HorizontalAlignment.Center);
+            LBverbindungen.Columns.Add("Abfahrt", 150, HorizontalAlignment.Center);
+            LBverbindungen.Columns.Add("Ankunft", 150, HorizontalAlignment.Center);
+            LBverbindungen.Columns.Add("Dauer", 60, HorizontalAlignment.Center);
+
+            abfahrtsTafel.View = View.Details;
+            abfahrtsTafel.Columns.Add("Von", 150, HorizontalAlignment.Center);
+            abfahrtsTafel.Columns.Add("Nach", 150, HorizontalAlignment.Center);
+            abfahrtsTafel.Columns.Add("Abfahrt", 150, HorizontalAlignment.Center);
+            abfahrtsTafel.Columns.Add("Ankunft", 150, HorizontalAlignment.Center);
+            abfahrtsTafel.Columns.Add("Dauer", 60, HorizontalAlignment.Center);
 
 
 
-            return days;
         }
 
+        private void searchVerbindungen_Click(object sender, EventArgs e)
+        {
+            testee = new Transport();
+            var stationBoard = testee.GetStationBoard("Sursee", "8502007");
+
+           // var item = new ListViewItem(new[] { verbindung.getStartStation(), verbindung.getEndStation(), verbindung.getDeparture(), verbindung.getArrival(), verbindung.getDuration() });
 
 
+            //LBverbindungen.Items.Add(item);
 
-
-        
+        }
     }
 }

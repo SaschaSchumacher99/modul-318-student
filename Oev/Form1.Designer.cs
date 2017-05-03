@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
             this.dTPDate = new System.Windows.Forms.DateTimePicker();
@@ -41,8 +43,14 @@
             this.tbVon = new System.Windows.Forms.TextBox();
             this.lblVon = new System.Windows.Forms.Label();
             this.lkfahrplan = new System.Windows.Forms.TabPage();
+            this.LBverbindungen = new System.Windows.Forms.ListView();
+            this.tbStation = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.abfahrtsTafel = new System.Windows.Forms.ListView();
+            this.searchVerbindungen = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.fahrplan.SuspendLayout();
+            this.lkfahrplan.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -52,11 +60,12 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1504, 1174);
+            this.tabControl1.Size = new System.Drawing.Size(1902, 1156);
             this.tabControl1.TabIndex = 1;
             // 
             // fahrplan
             // 
+            this.fahrplan.Controls.Add(this.LBverbindungen);
             this.fahrplan.Controls.Add(this.dTPDate);
             this.fahrplan.Controls.Add(this.btnSearch);
             this.fahrplan.Controls.Add(this.dTPTime);
@@ -70,7 +79,7 @@
             this.fahrplan.Location = new System.Drawing.Point(8, 39);
             this.fahrplan.Name = "fahrplan";
             this.fahrplan.Padding = new System.Windows.Forms.Padding(3);
-            this.fahrplan.Size = new System.Drawing.Size(1488, 1127);
+            this.fahrplan.Size = new System.Drawing.Size(1886, 1109);
             this.fahrplan.TabIndex = 0;
             this.fahrplan.Text = "Fahrplan";
             this.fahrplan.UseVisualStyleBackColor = true;
@@ -159,25 +168,86 @@
             // 
             // lkfahrplan
             // 
+            this.lkfahrplan.Controls.Add(this.searchVerbindungen);
+            this.lkfahrplan.Controls.Add(this.abfahrtsTafel);
+            this.lkfahrplan.Controls.Add(this.tbStation);
+            this.lkfahrplan.Controls.Add(this.label4);
             this.lkfahrplan.Location = new System.Drawing.Point(8, 39);
             this.lkfahrplan.Name = "lkfahrplan";
             this.lkfahrplan.Padding = new System.Windows.Forms.Padding(3);
-            this.lkfahrplan.Size = new System.Drawing.Size(1382, 945);
+            this.lkfahrplan.Size = new System.Drawing.Size(1886, 1109);
             this.lkfahrplan.TabIndex = 1;
-            this.lkfahrplan.Text = "Lokalen Fahrplan";
+            this.lkfahrplan.Text = "Abfahrsfahrplan";
             this.lkfahrplan.UseVisualStyleBackColor = true;
+            // 
+            // LBverbindungen
+            // 
+            this.LBverbindungen.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.LBverbindungen.BackColor = System.Drawing.SystemColors.HighlightText;
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup1";
+            this.LBverbindungen.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup4});
+            this.LBverbindungen.Location = new System.Drawing.Point(376, 115);
+            this.LBverbindungen.Name = "LBverbindungen";
+            this.LBverbindungen.Size = new System.Drawing.Size(1472, 502);
+            this.LBverbindungen.TabIndex = 10;
+            this.LBverbindungen.UseCompatibleStateImageBehavior = false;
+            // 
+            // tbStation
+            // 
+            this.tbStation.Location = new System.Drawing.Point(11, 77);
+            this.tbStation.Name = "tbStation";
+            this.tbStation.Size = new System.Drawing.Size(244, 31);
+            this.tbStation.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 25);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Station";
+            // 
+            // abfahrtsTafel
+            // 
+            this.abfahrtsTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.abfahrtsTafel.BackColor = System.Drawing.SystemColors.HighlightText;
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup1";
+            this.abfahrtsTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup3});
+            this.abfahrtsTafel.Location = new System.Drawing.Point(363, 77);
+            this.abfahrtsTafel.Name = "abfahrtsTafel";
+            this.abfahrtsTafel.Size = new System.Drawing.Size(1472, 502);
+            this.abfahrtsTafel.TabIndex = 11;
+            this.abfahrtsTafel.UseCompatibleStateImageBehavior = false;
+            // 
+            // searchVerbindungen
+            // 
+            this.searchVerbindungen.Location = new System.Drawing.Point(11, 531);
+            this.searchVerbindungen.Name = "searchVerbindungen";
+            this.searchVerbindungen.Size = new System.Drawing.Size(244, 48);
+            this.searchVerbindungen.TabIndex = 12;
+            this.searchVerbindungen.Text = "Suchen";
+            this.searchVerbindungen.UseVisualStyleBackColor = true;
+            this.searchVerbindungen.Click += new System.EventHandler(this.searchVerbindungen_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1506, 1183);
+            this.ClientSize = new System.Drawing.Size(1886, 1163);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            
             this.tabControl1.ResumeLayout(false);
             this.fahrplan.ResumeLayout(false);
             this.fahrplan.PerformLayout();
+            this.lkfahrplan.ResumeLayout(false);
+            this.lkfahrplan.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -197,6 +267,11 @@
         private System.Windows.Forms.TextBox tbVon;
         private System.Windows.Forms.Label lblVon;
         private System.Windows.Forms.TabPage lkfahrplan;
+        private System.Windows.Forms.ListView LBverbindungen;
+        private System.Windows.Forms.Button searchVerbindungen;
+        private System.Windows.Forms.ListView abfahrtsTafel;
+        private System.Windows.Forms.TextBox tbStation;
+        private System.Windows.Forms.Label label4;
     }
 }
 

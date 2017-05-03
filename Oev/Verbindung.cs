@@ -46,7 +46,7 @@ namespace Oev
           return  ValidateDuration(result.Duration);
         }
 
-        private String ValidateDateTime(String time)
+        private  String ValidateDateTime(String time)
         {
 
             DateTimeOffset dateTime = DateTimeOffset.Parse(time);
@@ -65,7 +65,7 @@ namespace Oev
             int mins = Convert.ToInt32(duration.Substring(6, 2));
             int durationInMins = (days * 24) + (hours * 60) + mins;
 
-      
+
             return Convert.ToString(durationInMins) + " min";
         }
 

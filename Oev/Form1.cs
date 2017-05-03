@@ -132,16 +132,16 @@ namespace Oev
 
         private void searchStation_Click(object sender, EventArgs e)
         {
-            String input = comboBox1.Text;
+            String input = tbVon.Text;
 
             var stations = testee.GetStations(input);
 
             foreach (Station stationName in stations.StationList)
             {
-                comboBox1.Items.Add(stationName.Name);
+                tbVon.Items.Add(stationName.Name);
             }
-            this.comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.tbVon.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.tbVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void searchStationAF_Click(object sender, EventArgs e)

@@ -33,7 +33,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
             this.searchStation = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbVon = new System.Windows.Forms.ComboBox();
             this.LBverbindungen = new System.Windows.Forms.ListView();
             this.dTPDate = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -43,7 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbNach = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbVon = new System.Windows.Forms.TextBox();
             this.lblVon = new System.Windows.Forms.Label();
             this.lkfahrplan = new System.Windows.Forms.TabPage();
             this.searchStationAF = new System.Windows.Forms.Button();
@@ -69,7 +68,7 @@
             // fahrplan
             // 
             this.fahrplan.Controls.Add(this.searchStation);
-            this.fahrplan.Controls.Add(this.comboBox1);
+            this.fahrplan.Controls.Add(this.tbVon);
             this.fahrplan.Controls.Add(this.LBverbindungen);
             this.fahrplan.Controls.Add(this.dTPDate);
             this.fahrplan.Controls.Add(this.btnSearch);
@@ -79,7 +78,6 @@
             this.fahrplan.Controls.Add(this.label2);
             this.fahrplan.Controls.Add(this.tbNach);
             this.fahrplan.Controls.Add(this.label1);
-            this.fahrplan.Controls.Add(this.tbVon);
             this.fahrplan.Controls.Add(this.lblVon);
             this.fahrplan.Location = new System.Drawing.Point(8, 39);
             this.fahrplan.Name = "fahrplan";
@@ -99,16 +97,16 @@
             this.searchStation.UseVisualStyleBackColor = true;
             this.searchStation.Click += new System.EventHandler(this.searchStation_Click);
             // 
-            // comboBox1
+            // tbVon
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 57);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(244, 33);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
+            this.tbVon.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.tbVon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.tbVon.FormattingEnabled = true;
+            this.tbVon.Location = new System.Drawing.Point(31, 57);
+            this.tbVon.Name = "tbVon";
+            this.tbVon.Size = new System.Drawing.Size(244, 33);
+            this.tbVon.TabIndex = 11;
+            this.tbVon.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // LBverbindungen
             // 
@@ -189,14 +187,6 @@
             this.label1.Size = new System.Drawing.Size(62, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nach";
-            // 
-            // tbVon
-            // 
-            this.tbVon.Location = new System.Drawing.Point(31, 115);
-            this.tbVon.Name = "tbVon";
-            this.tbVon.Size = new System.Drawing.Size(244, 31);
-            this.tbVon.TabIndex = 1;
-            this.tbVon.TextChanged += new System.EventHandler(this.tbVon_TextChanged);
             // 
             // lblVon
             // 
@@ -304,13 +294,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbNach;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbVon;
         private System.Windows.Forms.Label lblVon;
         private System.Windows.Forms.TabPage lkfahrplan;
         private System.Windows.Forms.ListView LBverbindungen;
         private System.Windows.Forms.Button searchVerbindungen;
         private System.Windows.Forms.ListView abfahrtsTafel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox tbVon;
         private System.Windows.Forms.Button searchStation;
         private System.Windows.Forms.Button searchStationAF;
         private System.Windows.Forms.ComboBox comboBox2;

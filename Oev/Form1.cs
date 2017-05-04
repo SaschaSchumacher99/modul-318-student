@@ -159,11 +159,11 @@ namespace Oev
         {
             String input = comboBox2.Text;
 
-            var stations = testee.GetStations(input);
 
             foreach (Station stationName in stations.StationList)
             {
                 comboBox2.Items.Add(stationName.Name);
+
             }
             this.comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.comboBox2.AutoCompleteSource = AutoCompleteSource.CustomSource;

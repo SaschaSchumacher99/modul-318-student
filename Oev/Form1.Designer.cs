@@ -1,6 +1,6 @@
 ﻿namespace Oev
 {
-    partial class Form1
+    partial class OevVerbindungen
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -49,6 +49,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.searchVerbindungen = new System.Windows.Forms.Button();
             this.abfahrtsTafel = new System.Windows.Forms.ListView();
+            this.openKarte = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
             this.fahrplan.SuspendLayout();
             this.lkfahrplan.SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             // fahrplan
             // 
+            this.fahrplan.Controls.Add(this.openKarte);
             this.fahrplan.Controls.Add(this.searchStation);
             this.fahrplan.Controls.Add(this.tbVon);
             this.fahrplan.Controls.Add(this.LBverbindungen);
@@ -89,7 +91,7 @@
             // 
             this.searchStation.Location = new System.Drawing.Point(408, 57);
             this.searchStation.Name = "searchStation";
-            this.searchStation.Size = new System.Drawing.Size(187, 35);
+            this.searchStation.Size = new System.Drawing.Size(187, 61);
             this.searchStation.TabIndex = 12;
             this.searchStation.Text = "Station suchen";
             this.searchStation.UseVisualStyleBackColor = true;
@@ -104,7 +106,7 @@
             this.tbVon.Name = "tbVon";
             this.tbVon.Size = new System.Drawing.Size(293, 33);
             this.tbVon.TabIndex = 11;
-            this.tbVon.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
+            this.tbVon.TextChanged += new System.EventHandler(this.tbVon_TextChanged);
             // 
             // LBverbindungen
             // 
@@ -114,9 +116,9 @@
             listViewGroup3.Name = "listViewGroup1";
             this.LBverbindungen.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup3});
-            this.LBverbindungen.Location = new System.Drawing.Point(408, 119);
+            this.LBverbindungen.Location = new System.Drawing.Point(408, 221);
             this.LBverbindungen.Name = "LBverbindungen";
-            this.LBverbindungen.Size = new System.Drawing.Size(1416, 502);
+            this.LBverbindungen.Size = new System.Drawing.Size(1416, 665);
             this.LBverbindungen.TabIndex = 10;
             this.LBverbindungen.UseCompatibleStateImageBehavior = false;
             // 
@@ -198,7 +200,7 @@
             this.lkfahrplan.Location = new System.Drawing.Point(8, 39);
             this.lkfahrplan.Name = "lkfahrplan";
             this.lkfahrplan.Padding = new System.Windows.Forms.Padding(3);
-            this.lkfahrplan.Size = new System.Drawing.Size(1780, 1109);
+            this.lkfahrplan.Size = new System.Drawing.Size(1890, 1109);
             this.lkfahrplan.TabIndex = 1;
             this.lkfahrplan.Text = "Abfahrsfahrplan";
             this.lkfahrplan.UseVisualStyleBackColor = true;
@@ -256,14 +258,25 @@
             this.abfahrtsTafel.TabIndex = 11;
             this.abfahrtsTafel.UseCompatibleStateImageBehavior = false;
             // 
-            // Form1
+            // openKarte
+            // 
+            this.openKarte.AutoSize = true;
+            this.openKarte.Location = new System.Drawing.Point(25, 103);
+            this.openKarte.Name = "openKarte";
+            this.openKarte.Size = new System.Drawing.Size(63, 25);
+            this.openKarte.TabIndex = 13;
+            this.openKarte.TabStop = true;
+            this.openKarte.Text = "Karte";
+            this.openKarte.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.openKarte_LinkClicked);
+            // 
+            // OevVerbindungen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1910, 1163);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "OevVerbindungen";
+            this.Text = "Öv Verbindungen ";
             this.tabControl1.ResumeLayout(false);
             this.fahrplan.ResumeLayout(false);
             this.fahrplan.PerformLayout();
@@ -294,6 +307,7 @@
         private System.Windows.Forms.Button searchStationAF;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel openKarte;
     }
 }
 

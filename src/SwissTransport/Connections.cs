@@ -7,6 +7,7 @@ namespace SwissTransport
     {
         [JsonProperty("connections")]
         public List<Connection> ConnectionList { get; set; } 
+
     }
 
     public class Connection

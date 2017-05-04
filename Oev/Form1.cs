@@ -21,8 +21,10 @@ namespace Oev
             InitializeComponent();
             InitLists();
             testee = new Transport();
-         //   this.comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
-         //   this.comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //   this.comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
+            //   this.comboBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            dTPTime.Format = DateTimePickerFormat.Custom;
+            dTPTime.CustomFormat = "dd.MM.yyyy | HH:mm";
 
         }
 
@@ -30,6 +32,15 @@ namespace Oev
         {
             
             var connections = testee.GetConnections(tbVon.Text, tbNach.Text);
+            String inputTime = dTPTime.Text;
+            var date = DateTime.Parse(inputTime.Substring(0,10));
+            String formattetDate = date.ToString("yyyy-MM-dd");
+            String time = inputTime.Substring(12, 6);
+
+
+
+
+            MessageBox.Show(time);
 
 
             for(int i = 0; i < connections.ConnectionList.Count; i++) 

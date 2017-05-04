@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
             this.searchStation = new System.Windows.Forms.Button();
             this.tbVon = new System.Windows.Forms.ComboBox();
             this.LBverbindungen = new System.Windows.Forms.ListView();
-            this.dTPDate = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dTPTime = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,7 +61,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1796, 1156);
+            this.tabControl1.Size = new System.Drawing.Size(1906, 1156);
             this.tabControl1.TabIndex = 1;
             // 
             // fahrplan
@@ -70,7 +69,6 @@
             this.fahrplan.Controls.Add(this.searchStation);
             this.fahrplan.Controls.Add(this.tbVon);
             this.fahrplan.Controls.Add(this.LBverbindungen);
-            this.fahrplan.Controls.Add(this.dTPDate);
             this.fahrplan.Controls.Add(this.btnSearch);
             this.fahrplan.Controls.Add(this.dTPTime);
             this.fahrplan.Controls.Add(this.label3);
@@ -82,14 +80,14 @@
             this.fahrplan.Location = new System.Drawing.Point(8, 39);
             this.fahrplan.Name = "fahrplan";
             this.fahrplan.Padding = new System.Windows.Forms.Padding(3);
-            this.fahrplan.Size = new System.Drawing.Size(1780, 1109);
+            this.fahrplan.Size = new System.Drawing.Size(1890, 1109);
             this.fahrplan.TabIndex = 0;
             this.fahrplan.Text = "Fahrplan";
             this.fahrplan.UseVisualStyleBackColor = true;
             // 
             // searchStation
             // 
-            this.searchStation.Location = new System.Drawing.Point(296, 57);
+            this.searchStation.Location = new System.Drawing.Point(408, 57);
             this.searchStation.Name = "searchStation";
             this.searchStation.Size = new System.Drawing.Size(187, 35);
             this.searchStation.TabIndex = 12;
@@ -104,7 +102,7 @@
             this.tbVon.FormattingEnabled = true;
             this.tbVon.Location = new System.Drawing.Point(31, 57);
             this.tbVon.Name = "tbVon";
-            this.tbVon.Size = new System.Drawing.Size(244, 33);
+            this.tbVon.Size = new System.Drawing.Size(293, 33);
             this.tbVon.TabIndex = 11;
             this.tbVon.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
@@ -112,22 +110,15 @@
             // 
             this.LBverbindungen.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.LBverbindungen.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup1";
             this.LBverbindungen.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
-            this.LBverbindungen.Location = new System.Drawing.Point(330, 115);
+            listViewGroup3});
+            this.LBverbindungen.Location = new System.Drawing.Point(408, 119);
             this.LBverbindungen.Name = "LBverbindungen";
             this.LBverbindungen.Size = new System.Drawing.Size(1416, 502);
             this.LBverbindungen.TabIndex = 10;
             this.LBverbindungen.UseCompatibleStateImageBehavior = false;
-            // 
-            // dTPDate
-            // 
-            this.dTPDate.Location = new System.Drawing.Point(31, 384);
-            this.dTPDate.Name = "dTPDate";
-            this.dTPDate.Size = new System.Drawing.Size(244, 31);
-            this.dTPDate.TabIndex = 9;
             // 
             // btnSearch
             // 
@@ -141,10 +132,10 @@
             // 
             // dTPTime
             // 
-            this.dTPTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dTPTime.Location = new System.Drawing.Point(31, 447);
+            this.dTPTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dTPTime.Location = new System.Drawing.Point(31, 395);
             this.dTPTime.Name = "dTPTime";
-            this.dTPTime.Size = new System.Drawing.Size(244, 31);
+            this.dTPTime.Size = new System.Drawing.Size(293, 31);
             this.dTPTime.TabIndex = 7;
             // 
             // label3
@@ -160,7 +151,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(31, 286);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 31);
+            this.textBox1.Size = new System.Drawing.Size(293, 31);
             this.textBox1.TabIndex = 5;
             // 
             // label2
@@ -176,7 +167,7 @@
             // 
             this.tbNach.Location = new System.Drawing.Point(31, 198);
             this.tbNach.Name = "tbNach";
-            this.tbNach.Size = new System.Drawing.Size(244, 31);
+            this.tbNach.Size = new System.Drawing.Size(293, 31);
             this.tbNach.TabIndex = 3;
             // 
             // label1
@@ -255,10 +246,10 @@
             // 
             this.abfahrtsTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.abfahrtsTafel.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup1";
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup1";
             this.abfahrtsTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup4});
             this.abfahrtsTafel.Location = new System.Drawing.Point(276, 211);
             this.abfahrtsTafel.Name = "abfahrtsTafel";
             this.abfahrtsTafel.Size = new System.Drawing.Size(1414, 502);
@@ -269,7 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1802, 1163);
+            this.ClientSize = new System.Drawing.Size(1910, 1163);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -286,7 +277,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage fahrplan;
-        private System.Windows.Forms.DateTimePicker dTPDate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DateTimePicker dTPTime;
         private System.Windows.Forms.Label label3;

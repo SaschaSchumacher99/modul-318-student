@@ -32,6 +32,7 @@
             System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
+            this.openKarte = new System.Windows.Forms.LinkLabel();
             this.searchStation = new System.Windows.Forms.Button();
             this.tbVon = new System.Windows.Forms.ComboBox();
             this.LBverbindungen = new System.Windows.Forms.ListView();
@@ -49,10 +50,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.searchVerbindungen = new System.Windows.Forms.Button();
             this.abfahrtsTafel = new System.Windows.Forms.ListView();
-            this.openKarte = new System.Windows.Forms.LinkLabel();
+            this.autocomplete = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.fahrplan.SuspendLayout();
             this.lkfahrplan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -67,6 +70,8 @@
             // 
             // fahrplan
             // 
+            this.fahrplan.Controls.Add(this.pictureBox1);
+            this.fahrplan.Controls.Add(this.autocomplete);
             this.fahrplan.Controls.Add(this.openKarte);
             this.fahrplan.Controls.Add(this.searchStation);
             this.fahrplan.Controls.Add(this.tbVon);
@@ -86,6 +91,17 @@
             this.fahrplan.TabIndex = 0;
             this.fahrplan.Text = "Fahrplan";
             this.fahrplan.UseVisualStyleBackColor = true;
+            // 
+            // openKarte
+            // 
+            this.openKarte.AutoSize = true;
+            this.openKarte.Location = new System.Drawing.Point(25, 103);
+            this.openKarte.Name = "openKarte";
+            this.openKarte.Size = new System.Drawing.Size(63, 25);
+            this.openKarte.TabIndex = 13;
+            this.openKarte.TabStop = true;
+            this.openKarte.Text = "Karte";
+            this.openKarte.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.openKarte_LinkClicked);
             // 
             // searchStation
             // 
@@ -258,16 +274,25 @@
             this.abfahrtsTafel.TabIndex = 11;
             this.abfahrtsTafel.UseCompatibleStateImageBehavior = false;
             // 
-            // openKarte
+            // autocomplete
             // 
-            this.openKarte.AutoSize = true;
-            this.openKarte.Location = new System.Drawing.Point(25, 103);
-            this.openKarte.Name = "openKarte";
-            this.openKarte.Size = new System.Drawing.Size(63, 25);
-            this.openKarte.TabIndex = 13;
-            this.openKarte.TabStop = true;
-            this.openKarte.Text = "Karte";
-            this.openKarte.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.openKarte_LinkClicked);
+            this.autocomplete.AutoSize = true;
+            this.autocomplete.Location = new System.Drawing.Point(100, 103);
+            this.autocomplete.Name = "autocomplete";
+            this.autocomplete.Size = new System.Drawing.Size(175, 29);
+            this.autocomplete.TabIndex = 14;
+            this.autocomplete.Text = "Autocomplete";
+            this.autocomplete.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Oev.Properties.Resources.email;
+            this.pictureBox1.Location = new System.Drawing.Point(1660, 892);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(164, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // OevVerbindungen
             // 
@@ -282,6 +307,7 @@
             this.fahrplan.PerformLayout();
             this.lkfahrplan.ResumeLayout(false);
             this.lkfahrplan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -308,6 +334,8 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel openKarte;
+        private System.Windows.Forms.CheckBox autocomplete;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

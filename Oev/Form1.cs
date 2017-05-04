@@ -1,4 +1,5 @@
-﻿using SwissTransport;
+﻿
+using SwissTransport;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace Oev
         private ITransport testee;
         private String input;
         private bool needAutoCompleteUpdate = false;
-        
+
         public OevVerbindungen()
         {
             InitializeComponent();
@@ -25,23 +26,24 @@ namespace Oev
             testee = new Transport();
             dTPTime.Format = DateTimePickerFormat.Custom;
             dTPTime.CustomFormat = "dd.MM.yyyy | HH:mm";
+            LoadToolTip();
 
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             LBverbindungen.Items.Clear();
-            
+
 
             String inputTime = dTPTime.Text;
-            var date = DateTime.Parse(inputTime.Substring(0,10));
+            var date = DateTime.Parse(inputTime.Substring(0, 10));
             String formattetDate = date.ToString("yyyy-MM-dd");
             String time = inputTime.Substring(12, 6);
 
 
-            var connections = testee.GetConnections(tbVon.Text, tbNach.Text,formattetDate,time);
+            var connections = testee.GetConnections(tbVon.Text, tbNach.Text, formattetDate, time);
 
-            for(int i = 0; i < connections.ConnectionList.Count; i++) 
+            for (int i = 0; i < connections.ConnectionList.Count; i++)
             {
                 Connection result = connections.ConnectionList[i];
 
@@ -52,15 +54,25 @@ namespace Oev
 
 
                 var item = new ListViewItem(new[] { verbindung.getStartStation(), verbindung.getEndStation(), verbindung.getDeparture(), verbindung.getArrival(), verbindung.getDuration() });
-                
-          
+
                 LBverbindungen.Items.Add(item);
 
             }
         }
 
+        public void LoadToolTip()
+        {
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
 
-    
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(this.autocomplete, "Nach vier Zeichen kurz warten bis die Ergebnisse angezeit werden!");
+
+        }
+
         private void InitLists()
         {
             LBverbindungen.View = View.Details;
@@ -69,7 +81,7 @@ namespace Oev
             LBverbindungen.Columns.Add("Abfahrt", 150, HorizontalAlignment.Center);
             LBverbindungen.Columns.Add("Ankunft", 150, HorizontalAlignment.Center);
             LBverbindungen.Columns.Add("Dauer", 60, HorizontalAlignment.Center);
-            LBverbindungen.Columns.Add("Karte", 60, HorizontalAlignment.Center);
+
 
             abfahrtsTafel.View = View.Details;
             abfahrtsTafel.Columns.Add("Abfahrt", 150, HorizontalAlignment.Left);
@@ -77,7 +89,7 @@ namespace Oev
             abfahrtsTafel.Columns.Add("Name", 150, HorizontalAlignment.Left);
             abfahrtsTafel.Columns.Add("Von", 150, HorizontalAlignment.Center);
             abfahrtsTafel.Columns.Add("Nach", 150, HorizontalAlignment.Left);
-            
+
 
 
 
@@ -92,11 +104,11 @@ namespace Oev
             String id = station.Id;
 
             StationBoardRoot stationBoard = testee.GetStationBoard(comboBox2.Text, id);
-            
+
 
             foreach (StationBoard entries in stationBoard.Entries)
             {
-                    var item = new ListViewItem(new[] { entries.Stop.Departure.ToString(), entries.Category, entries.Name, station.Name , entries.To });
+                var item = new ListViewItem(new[] { entries.Stop.Departure.ToString(), entries.Category, entries.Name, station.Name, entries.To });
                 abfahrtsTafel.Items.Add(item);
             }
 
@@ -113,33 +125,41 @@ namespace Oev
                      tbVon.AutoCompleteCustomSource.Add(stationName.Name);
                  }
              */
-            input = tbVon.Text;
-
-            if (input.Length > 3 && input.Length < 5)
+            if (autocomplete.Checked)
             {
-                needAutoCompleteUpdate = true;
+
+                input = tbVon.Text;
+
+                if (input.Length > 3)
+                {
+                    needAutoCompleteUpdate = true;
+                }
+                else
+                {
+                    needAutoCompleteUpdate = false;
+                }
+                if (needAutoCompleteUpdate)
+                {
+                    var stations = testee.GetStations(input);
+
+                    foreach (Station stationName in stations.StationList)
+                    {
+                        tbVon.AutoCompleteCustomSource.Add(stationName.Name);
+                    }
+                    this.tbVon.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    this.tbVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                }
             }
             else
             {
-                needAutoCompleteUpdate = false;
-            }
-            if (needAutoCompleteUpdate)
-            {
-                var stations = testee.GetStations(input);
+                this.tbVon.AutoCompleteMode = AutoCompleteMode.None;
 
-                foreach (Station stationName in stations.StationList)
-                {
-                    tbVon.AutoCompleteCustomSource.Add(stationName.Name);
-                }
-                this.tbVon.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                this.tbVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
-
 
 
         }
 
-     
+
 
         private void searchStation_Click(object sender, EventArgs e)
         {
@@ -159,7 +179,7 @@ namespace Oev
         {
             String input = comboBox2.Text;
 
-
+            /*
             foreach (Station stationName in stations.StationList)
             {
                 comboBox2.Items.Add(stationName.Name);
@@ -169,7 +189,8 @@ namespace Oev
             this.comboBox2.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
         }
-
+        */
+        }
         private void openKarte_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
@@ -179,15 +200,34 @@ namespace Oev
             if (stations.StationList.Count > 0)
             {
                 Station station = stations.StationList[0];
-
-          
-            System.Diagnostics.Process.Start("https://www.google.ch/maps/search/" + station.Name + " bus");
+                System.Diagnostics.Process.Start("https://www.google.ch/maps/search/" + station.Name + " haltestelle");
             }
             else
             {
                 MessageBox.Show("Bitte eine Station eintragen!");
             }
         }
+        private void sendEmail(String startStation, String endStation, String departure, String arrival, String duration)
+        {
+            String url = "mailto:?subject=Öv%20Verbindungen&body=ÖV%20Verbindung%20zwischen%20" +
+                            startStation + " - " + endStation + "%0A" +
+                            "Abfahrt: " + departure + "%0A" +
+                            "Ankunft: " + arrival + "%0A" +
+                            "Dauer: " + duration;
+            System.Diagnostics.Process.Start(url);
+
+        }
+
+        private void LBverbindungen_DoubleClick(object sender, EventArgs e)
+        {
+            sendEmail(LBverbindungen.SelectedItems[0].SubItems[0].Text,
+                        LBverbindungen.SelectedItems[0].SubItems[1].Text,
+                        LBverbindungen.SelectedItems[0].SubItems[2].Text,
+                        LBverbindungen.SelectedItems[0].SubItems[3].Text,
+                        LBverbindungen.SelectedItems[0].SubItems[4].Text
+                        );
+            // MessageBox.Show(LBverbindungen.SelectedItems[0].SubItems.Count + "");
+        }
     }
-    }
- 
+}
+

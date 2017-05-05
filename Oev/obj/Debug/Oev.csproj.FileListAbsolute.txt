@@ -1,0 +1,17 @@
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\Oev.exe.config
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\Oev.exe
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\Oev.pdb
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\SwissTransport.dll
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\Newtonsoft.Json.dll
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\SwissTransport.pdb
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\Newtonsoft.Json.xml
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.csprojResolveAssemblyReference.cache
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.OevVerbindungen.resources
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.Properties.Resources.resources
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.csproj.GenerateResource.Cache
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.exe
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.pdb
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\Oev.exe.manifest
+C:\Users\saschaschumacher\modul-318-student\Oev\bin\Debug\Oev.application
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.exe.manifest
+C:\Users\saschaschumacher\modul-318-student\Oev\obj\Debug\Oev.application

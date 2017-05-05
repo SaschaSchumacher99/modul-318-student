@@ -27,7 +27,7 @@ namespace Oev
             LoadToolTip();
             transport = new Transport();
             errors = new ErrorHandling();
-            InitDTP();
+
 
 
 
@@ -105,11 +105,11 @@ namespace Oev
         private void SearchVerbindungen_Click(object sender, EventArgs e)
         {
             abfahrtsTafel.Items.Clear();
-            Stations stations = transport.GetStations(searchStations2.Text);
+            Stations stations = transport.GetStations(stationSearch.Text);
             Station station = stations.StationList[0];
             String id = station.Id;
 
-            StationBoardRoot stationBoard = transport.GetStationBoard(searchStations2.Text, id);
+            StationBoardRoot stationBoard = transport.GetStationBoard(stationSearch.Text, id);
             if (errors.IsStationBoardNull(stationBoard))
             {
 
@@ -174,16 +174,16 @@ namespace Oev
 
         private void SearchStationAF_Click(object sender, EventArgs e)
         {
-            String input = searchStations.Text;
+            String input = stationSearch.Text;
 
             var stations = transport.GetStations(input);
 
             foreach (Station stationName in stations.StationList)
             {
-                searchStations.Items.Add(stationName.Name);
+                stationSearch.Items.Add(stationName.Name);
             }
-            this.searchStations.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.searchStations.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.stationSearch.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.stationSearch.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
         private void OpenKarte_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

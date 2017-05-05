@@ -32,8 +32,6 @@
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
-            this.emailhint = new System.Windows.Forms.PictureBox();
-            this.autocomplete = new System.Windows.Forms.CheckBox();
             this.openKarte = new System.Windows.Forms.LinkLabel();
             this.searchStation = new System.Windows.Forms.Button();
             this.tbVon = new System.Windows.Forms.ComboBox();
@@ -48,14 +46,16 @@
             this.lblVon = new System.Windows.Forms.Label();
             this.lkfahrplan = new System.Windows.Forms.TabPage();
             this.searchStationAF = new System.Windows.Forms.Button();
-            this.searchStations = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.searchStations2 = new System.Windows.Forms.Button();
+            this.searchVerbindungen = new System.Windows.Forms.Button();
             this.abfahrtsTafel = new System.Windows.Forms.ListView();
+            this.autocomplete = new System.Windows.Forms.CheckBox();
+            this.emailhint = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.fahrplan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.emailhint)).BeginInit();
             this.lkfahrplan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.emailhint)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -92,26 +92,6 @@
             this.fahrplan.Text = "Fahrplan";
             this.fahrplan.UseVisualStyleBackColor = true;
             // 
-            // emailhint
-            // 
-            this.emailhint.Image = global::Oev.Properties.Resources.email;
-            this.emailhint.Location = new System.Drawing.Point(1744, 892);
-            this.emailhint.Name = "emailhint";
-            this.emailhint.Size = new System.Drawing.Size(80, 64);
-            this.emailhint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.emailhint.TabIndex = 15;
-            this.emailhint.TabStop = false;
-            // 
-            // autocomplete
-            // 
-            this.autocomplete.AutoSize = true;
-            this.autocomplete.Location = new System.Drawing.Point(100, 103);
-            this.autocomplete.Name = "autocomplete";
-            this.autocomplete.Size = new System.Drawing.Size(175, 29);
-            this.autocomplete.TabIndex = 14;
-            this.autocomplete.Text = "Autocomplete";
-            this.autocomplete.UseVisualStyleBackColor = true;
-            // 
             // openKarte
             // 
             this.openKarte.AutoSize = true;
@@ -121,7 +101,7 @@
             this.openKarte.TabIndex = 13;
             this.openKarte.TabStop = true;
             this.openKarte.Text = "Karte";
-            this.openKarte.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OpenKarte_LinkClicked);
+            this.openKarte.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.openKarte_LinkClicked);
             // 
             // searchStation
             // 
@@ -131,7 +111,7 @@
             this.searchStation.TabIndex = 12;
             this.searchStation.Text = "Station suchen";
             this.searchStation.UseVisualStyleBackColor = true;
-            this.searchStation.Click += new System.EventHandler(this.SearchStation_Click);
+            this.searchStation.Click += new System.EventHandler(this.searchStation_Click);
             // 
             // tbVon
             // 
@@ -142,7 +122,7 @@
             this.tbVon.Name = "tbVon";
             this.tbVon.Size = new System.Drawing.Size(293, 33);
             this.tbVon.TabIndex = 11;
-            this.tbVon.TextChanged += new System.EventHandler(this.TbVon_TextChanged);
+            this.tbVon.TextChanged += new System.EventHandler(this.tbVon_TextChanged);
             // 
             // LBverbindungen
             // 
@@ -230,9 +210,9 @@
             // lkfahrplan
             // 
             this.lkfahrplan.Controls.Add(this.searchStationAF);
-            this.lkfahrplan.Controls.Add(this.searchStations);
+            this.lkfahrplan.Controls.Add(this.comboBox2);
             this.lkfahrplan.Controls.Add(this.label4);
-            this.lkfahrplan.Controls.Add(this.searchStations2);
+            this.lkfahrplan.Controls.Add(this.searchVerbindungen);
             this.lkfahrplan.Controls.Add(this.abfahrtsTafel);
             this.lkfahrplan.Location = new System.Drawing.Point(8, 39);
             this.lkfahrplan.Name = "lkfahrplan";
@@ -250,17 +230,17 @@
             this.searchStationAF.TabIndex = 15;
             this.searchStationAF.Text = "Station suchen";
             this.searchStationAF.UseVisualStyleBackColor = true;
-            this.searchStationAF.Click += new System.EventHandler(this.SearchStationAF_Click);
+            this.searchStationAF.Click += new System.EventHandler(this.searchStationAF_Click);
             // 
-            // searchStations
+            // comboBox2
             // 
-            this.searchStations.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.searchStations.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.searchStations.FormattingEnabled = true;
-            this.searchStations.Location = new System.Drawing.Point(11, 53);
-            this.searchStations.Name = "searchStations";
-            this.searchStations.Size = new System.Drawing.Size(244, 33);
-            this.searchStations.TabIndex = 14;
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(11, 53);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(244, 33);
+            this.comboBox2.TabIndex = 14;
             // 
             // label4
             // 
@@ -271,15 +251,15 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Von";
             // 
-            // searchStations2
+            // searchVerbindungen
             // 
-            this.searchStations2.Location = new System.Drawing.Point(11, 531);
-            this.searchStations2.Name = "searchStations2";
-            this.searchStations2.Size = new System.Drawing.Size(244, 48);
-            this.searchStations2.TabIndex = 12;
-            this.searchStations2.Text = "Suchen";
-            this.searchStations2.UseVisualStyleBackColor = true;
-            this.searchStations2.Click += new System.EventHandler(this.SearchVerbindungen_Click);
+            this.searchVerbindungen.Location = new System.Drawing.Point(11, 531);
+            this.searchVerbindungen.Name = "searchVerbindungen";
+            this.searchVerbindungen.Size = new System.Drawing.Size(244, 48);
+            this.searchVerbindungen.TabIndex = 12;
+            this.searchVerbindungen.Text = "Suchen";
+            this.searchVerbindungen.UseVisualStyleBackColor = true;
+            this.searchVerbindungen.Click += new System.EventHandler(this.searchVerbindungen_Click);
             // 
             // abfahrtsTafel
             // 
@@ -295,6 +275,26 @@
             this.abfahrtsTafel.TabIndex = 11;
             this.abfahrtsTafel.UseCompatibleStateImageBehavior = false;
             // 
+            // autocomplete
+            // 
+            this.autocomplete.AutoSize = true;
+            this.autocomplete.Location = new System.Drawing.Point(100, 103);
+            this.autocomplete.Name = "autocomplete";
+            this.autocomplete.Size = new System.Drawing.Size(175, 29);
+            this.autocomplete.TabIndex = 14;
+            this.autocomplete.Text = "Autocomplete";
+            this.autocomplete.UseVisualStyleBackColor = true;
+            // 
+            // emailhint
+            // 
+            this.emailhint.Image = global::Oev.Properties.Resources.email;
+            this.emailhint.Location = new System.Drawing.Point(1744, 892);
+            this.emailhint.Name = "emailhint";
+            this.emailhint.Size = new System.Drawing.Size(80, 64);
+            this.emailhint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.emailhint.TabIndex = 15;
+            this.emailhint.TabStop = false;
+            // 
             // OevVerbindungen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -306,9 +306,9 @@
             this.tabControl1.ResumeLayout(false);
             this.fahrplan.ResumeLayout(false);
             this.fahrplan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.emailhint)).EndInit();
             this.lkfahrplan.ResumeLayout(false);
             this.lkfahrplan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.emailhint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,16 +327,15 @@
         private System.Windows.Forms.Label lblVon;
         private System.Windows.Forms.TabPage lkfahrplan;
         private System.Windows.Forms.ListView LBverbindungen;
-        private System.Windows.Forms.Button searchStations2;
+        private System.Windows.Forms.Button searchVerbindungen;
         private System.Windows.Forms.ListView abfahrtsTafel;
         private System.Windows.Forms.ComboBox tbVon;
         private System.Windows.Forms.Button searchStation;
         private System.Windows.Forms.Button searchStationAF;
-        private System.Windows.Forms.ComboBox searchStations;
+        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel openKarte;
         private System.Windows.Forms.CheckBox autocomplete;
         private System.Windows.Forms.PictureBox emailhint;
     }
 }
-

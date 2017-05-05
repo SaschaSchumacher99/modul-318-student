@@ -76,8 +76,16 @@ namespace Oev
             var date = DateTime.Parse(inputTime.Substring(0, 10));
             String formattetDate = date.ToString("yyyy-MM-dd");
             String time = inputTime.Substring(12, 6);
+            String via = tbVia.Text;
+            Connections connections = new Connections();
 
-            var connections = transport.GetConnections(tbVon.Text, tbNach.Text, formattetDate, time);
+            if (viaCheckBox.Checked) {
+                 connections = transport.GetConnections(tbVon.Text, tbNach.Text, formattetDate, time,via);
+            }
+            else
+            {
+                 connections = transport.GetConnections(tbVon.Text, tbNach.Text, formattetDate, time);
+            }
             if (errors.IsConnectionsNull(connections))
             {
 
@@ -106,17 +114,17 @@ namespace Oev
         private void SearchVerbindungen_Click(object sender, EventArgs e)
         {
             abfahrtsTafel.Items.Clear();
-            Stations stations = transport.GetStations(searchStations2.Text);
+            Stations stations = transport.GetStations(searchStations.Text);
             Station station = stations.StationList[0];
             String id = station.Id;
 
-            StationBoardRoot stationBoard = transport.GetStationBoard(searchStations2.Text, id);
+            StationBoardRoot stationBoard = transport.GetStationBoard(searchStations.Text, id);
             if (errors.IsStationBoardNull(stationBoard))
             {
 
                 foreach (StationBoard entries in stationBoard.Entries)
                 {
-                    var item = new ListViewItem(new[] { entries.Stop.Departure.ToString(), entries.Category, entries.Name, station.Name, entries.To });
+                    var item = new ListViewItem(new[] { entries.Stop.Departure.ToString(), entries.Category, entries.To, station.Name, entries.To });
                     abfahrtsTafel.Items.Add(item);
                 }
             }
@@ -229,6 +237,16 @@ namespace Oev
 
         }
 
-      
+        private void viaCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (viaCheckBox.Checked)
+            {
+                tbVia.Enabled = true;
+            }
+            else
+            {
+                tbVia.Enabled = false;
+            }
+        }
     }
 }

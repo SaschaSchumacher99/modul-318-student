@@ -123,7 +123,6 @@ namespace SwissTransport
             return null;
         }
 
-
         private static WebRequest CreateWebRequest(string url)
         {
             var request = WebRequest.Create(url);

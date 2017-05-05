@@ -16,7 +16,6 @@ namespace Oev
     public partial class OevVerbindungen : Form
     {
         private ITransport transport;
-        private String input;
         private bool needAutoCompleteUpdate = false;
         private ErrorHandling errors;
 
@@ -27,10 +26,7 @@ namespace Oev
             LoadToolTip();
             transport = new Transport();
             errors = new ErrorHandling();
-            InitDTP();
-            
-
-
+            InitDateTimePicker();
 
         }
         public void LoadToolTip()
@@ -41,18 +37,18 @@ namespace Oev
             toolTip1.ReshowDelay = 500;
             toolTip1.ShowAlways = true;
 
-            toolTip1.SetToolTip(this.autocomplete, "Nach vier Zeichen kurz warten bis die Ergebnisse angezeit werden!");
+            toolTip1.SetToolTip(this.autocompleteVonn, "Nach vier Zeichen kurz warten bis die Ergebnisse angezeit werden!");
             toolTip1.SetToolTip(this.emailhint, "Du kannst deine ausgewählte Verbindung ganz einfach per Email senden.\n Dazu machst du einen Doppelklick auf die Startstation (Von Station)!");
         }
 
         private void InitLists()
         {
-            LBverbindungen.View = View.Details;
-            LBverbindungen.Columns.Add("Von", 150, HorizontalAlignment.Center);
-            LBverbindungen.Columns.Add("Nach", 150, HorizontalAlignment.Center);
-            LBverbindungen.Columns.Add("Abfahrt", 150, HorizontalAlignment.Center);
-            LBverbindungen.Columns.Add("Ankunft", 150, HorizontalAlignment.Center);
-            LBverbindungen.Columns.Add("Dauer", 60, HorizontalAlignment.Center);
+            verbindungenTafel.View = View.Details;
+            verbindungenTafel.Columns.Add("Von", 150, HorizontalAlignment.Center);
+            verbindungenTafel.Columns.Add("Nach", 150, HorizontalAlignment.Center);
+            verbindungenTafel.Columns.Add("Abfahrt", 150, HorizontalAlignment.Center);
+            verbindungenTafel.Columns.Add("Ankunft", 150, HorizontalAlignment.Center);
+            verbindungenTafel.Columns.Add("Dauer", 60, HorizontalAlignment.Center);
 
             abfahrtsTafel.View = View.Details;
             abfahrtsTafel.Columns.Add("Abfahrt", 150, HorizontalAlignment.Left);
@@ -62,29 +58,30 @@ namespace Oev
             abfahrtsTafel.Columns.Add("Nach", 150, HorizontalAlignment.Left);
         }
 
-        private void InitDTP()
+        private void InitDateTimePicker()
         {
-            dTPTime.Format = DateTimePickerFormat.Custom;
-            dTPTime.CustomFormat = "dd.MM.yyyy | HH:mm";
+            DateTimeEingabe.Format = DateTimePickerFormat.Custom;
+            DateTimeEingabe.CustomFormat = "dd.MM.yyyy | HH:mm";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            LBverbindungen.Items.Clear();
+            verbindungenTafel.Items.Clear();
 
-            String inputTime = dTPTime.Text;
+            String inputTime = DateTimeEingabe.Text;
             var date = DateTime.Parse(inputTime.Substring(0, 10));
             String formattetDate = date.ToString("yyyy-MM-dd");
             String time = inputTime.Substring(12, 6);
-            String via = tbVia.Text;
+            String via = viaEingabe.Text;
             Connections connections = new Connections();
 
-            if (viaCheckBox.Checked) {
-                 connections = transport.GetConnections(tbVon.Text, tbNach.Text, formattetDate, time,via);
+            if (viaCheckBox.Checked)
+            {
+                connections = transport.GetConnections(vonEingabe.Text, nachEingabe.Text, formattetDate, time, via);
             }
             else
             {
-                 connections = transport.GetConnections(tbVon.Text, tbNach.Text, formattetDate, time);
+                connections = transport.GetConnections(vonEingabe.Text, nachEingabe.Text, formattetDate, time);
             }
             if (errors.IsConnectionsNull(connections))
             {
@@ -92,16 +89,13 @@ namespace Oev
                 for (int i = 0; i < connections.ConnectionList.Count; i++)
                 {
                     Connection result = connections.ConnectionList[i];
-
                     ConnectionPoint from = result.From;
                     ConnectionPoint to = result.To;
 
                     Verbindung verbindung = new Verbindung(from, to, result);
-
-
                     var item = new ListViewItem(new[] { verbindung.getStartStation(), verbindung.getEndStation(), verbindung.getDeparture(), verbindung.getArrival(), verbindung.getDuration() });
 
-                    LBverbindungen.Items.Add(item);
+                    verbindungenTafel.Items.Add(item);
                 }
             }
             else
@@ -132,58 +126,30 @@ namespace Oev
             {
                 errors.ShowError("Zu viele Anfragen. Bitte Versuchen Sie es später nochmals", "Zu viele Anfragen!");
             }
-
         }
 
         private void TbVon_TextChanged(object sender, EventArgs e)
         {
-            if (autocomplete.Checked)
-            {
-
-                input = tbVon.Text;
-
-                if (input.Length > 3)
-                {
-                    needAutoCompleteUpdate = true;
-                }
-                else
-                {
-                    needAutoCompleteUpdate = false;
-                }
-                if (needAutoCompleteUpdate)
-                {
-                    var stations = transport.GetStations(input);
-                    foreach (Station stationName in stations.StationList)
-                    {
-                        tbVon.AutoCompleteCustomSource.Add(stationName.Name);
-                    }
-                    this.tbVon.AutoCompleteMode = AutoCompleteMode.Suggest;
-                    this.tbVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                }
-            }
-            else
-            {
-                this.tbVon.AutoCompleteMode = AutoCompleteMode.None;
-            }
+            AutoSearch(autocompleteVonn, vonEingabe);
         }
-
         private void SearchStation_Click(object sender, EventArgs e)
         {
-            String input = tbVon.Text;
+            String input = vonEingabe.Text;
 
             var stations = transport.GetStations(input);
 
             foreach (Station stationName in stations.StationList)
             {
-                tbVon.Items.Add(stationName.Name);
+                vonEingabe.Items.Add(stationName.Name);
             }
-            this.tbVon.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            this.tbVon.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            this.vonEingabe.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.vonEingabe.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
 
         private void SearchStationAF_Click(object sender, EventArgs e)
         {
             String input = searchStations.Text;
+
 
             var stations = transport.GetStations(input);
 
@@ -193,11 +159,13 @@ namespace Oev
             }
             this.searchStations.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             this.searchStations.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+            searchStations.Text = "Auswählen";
         }
         private void OpenKarte_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
-            Stations stations = transport.GetStations(tbVon.Text);
+            Stations stations = transport.GetStations(vonEingabe.Text);
             if (stations != null)
             {
 
@@ -224,29 +192,63 @@ namespace Oev
                             "Ankunft: " + arrival + "%0A" +
                             "Dauer: " + duration;
             System.Diagnostics.Process.Start(url);
-
         }
         private void LBverbindungen_DoubleClick(object sender, EventArgs e)
         {
-            SendEmail(LBverbindungen.SelectedItems[0].SubItems[0].Text,
-                        LBverbindungen.SelectedItems[0].SubItems[1].Text,
-                        LBverbindungen.SelectedItems[0].SubItems[2].Text,
-                        LBverbindungen.SelectedItems[0].SubItems[3].Text,
-                        LBverbindungen.SelectedItems[0].SubItems[4].Text
+            SendEmail(verbindungenTafel.SelectedItems[0].SubItems[0].Text,
+                        verbindungenTafel.SelectedItems[0].SubItems[1].Text,
+                        verbindungenTafel.SelectedItems[0].SubItems[2].Text,
+                        verbindungenTafel.SelectedItems[0].SubItems[3].Text,
+                        verbindungenTafel.SelectedItems[0].SubItems[4].Text
                         );
-
         }
 
         private void viaCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (viaCheckBox.Checked)
             {
-                tbVia.Enabled = true;
+                viaEingabe.Enabled = true;
             }
             else
             {
-                tbVia.Enabled = false;
+                viaEingabe.Enabled = false;
             }
+        }
+        private void AutoSearch(CheckBox checkbox, ComboBox combobox)
+        {
+            if (checkbox.Checked)
+            {
+
+                String input = combobox.Text;
+
+                if (input.Length > 3)
+                {
+                    needAutoCompleteUpdate = true;
+                }
+                else
+                {
+                    needAutoCompleteUpdate = false;
+                }
+                if (needAutoCompleteUpdate)
+                {
+                    var stations = transport.GetStations(input);
+                    foreach (Station stationName in stations.StationList)
+                    {
+                        combobox.AutoCompleteCustomSource.Add(stationName.Name);
+                    }
+                    combobox.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    combobox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                }
+            }
+        }
+        private void nachEingabe_TextChanged(object sender, EventArgs e)
+        {
+            AutoSearch(autocompleteNach, nachEingabe);
+        }
+
+        private void ViaEingabe_TextChanged(object sender, EventArgs e)
+        {
+            AutoSearch(autocompleteVia, viaEingabe);
         }
     }
 }

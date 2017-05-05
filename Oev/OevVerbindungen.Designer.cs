@@ -28,30 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.menu = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
+            this.nachEingabe = new System.Windows.Forms.ComboBox();
+            this.autocompleteVia = new System.Windows.Forms.CheckBox();
+            this.autocompleteNach = new System.Windows.Forms.CheckBox();
+            this.viaCheckBox = new System.Windows.Forms.CheckBox();
             this.emailhint = new System.Windows.Forms.PictureBox();
-            this.autocomplete = new System.Windows.Forms.CheckBox();
+            this.autocompleteVonn = new System.Windows.Forms.CheckBox();
             this.openKarte = new System.Windows.Forms.LinkLabel();
             this.searchStation = new System.Windows.Forms.Button();
-            this.tbVon = new System.Windows.Forms.ComboBox();
-            this.LBverbindungen = new System.Windows.Forms.ListView();
+            this.vonEingabe = new System.Windows.Forms.ComboBox();
+            this.verbindungenTafel = new System.Windows.Forms.ListView();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.dTPTime = new System.Windows.Forms.DateTimePicker();
+            this.DateTimeEingabe = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbVia = new System.Windows.Forms.TextBox();
-            this.tbNach = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblVon = new System.Windows.Forms.Label();
             this.lkfahrplan = new System.Windows.Forms.TabPage();
             this.searchStationAF = new System.Windows.Forms.Button();
             this.searchStations = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.searchStations2 = new System.Windows.Forms.Button();
+            this.searchStationen = new System.Windows.Forms.Button();
             this.abfahrtsTafel = new System.Windows.Forms.ListView();
-            this.viaCheckBox = new System.Windows.Forms.CheckBox();
+            this.viaEingabe = new System.Windows.Forms.ComboBox();
             this.menu.SuspendLayout();
             this.fahrplan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emailhint)).BeginInit();
@@ -70,18 +72,20 @@
             // 
             // fahrplan
             // 
+            this.fahrplan.Controls.Add(this.viaEingabe);
+            this.fahrplan.Controls.Add(this.nachEingabe);
+            this.fahrplan.Controls.Add(this.autocompleteVia);
+            this.fahrplan.Controls.Add(this.autocompleteNach);
             this.fahrplan.Controls.Add(this.viaCheckBox);
             this.fahrplan.Controls.Add(this.emailhint);
-            this.fahrplan.Controls.Add(this.autocomplete);
+            this.fahrplan.Controls.Add(this.autocompleteVonn);
             this.fahrplan.Controls.Add(this.openKarte);
             this.fahrplan.Controls.Add(this.searchStation);
-            this.fahrplan.Controls.Add(this.tbVon);
-            this.fahrplan.Controls.Add(this.LBverbindungen);
+            this.fahrplan.Controls.Add(this.vonEingabe);
+            this.fahrplan.Controls.Add(this.verbindungenTafel);
             this.fahrplan.Controls.Add(this.btnSearch);
-            this.fahrplan.Controls.Add(this.dTPTime);
+            this.fahrplan.Controls.Add(this.DateTimeEingabe);
             this.fahrplan.Controls.Add(this.label3);
-            this.fahrplan.Controls.Add(this.tbVia);
-            this.fahrplan.Controls.Add(this.tbNach);
             this.fahrplan.Controls.Add(this.label1);
             this.fahrplan.Controls.Add(this.lblVon);
             this.fahrplan.Location = new System.Drawing.Point(8, 39);
@@ -91,6 +95,46 @@
             this.fahrplan.TabIndex = 0;
             this.fahrplan.Text = "Fahrplan";
             this.fahrplan.UseVisualStyleBackColor = true;
+            // 
+            // nachEingabe
+            // 
+            this.nachEingabe.FormattingEnabled = true;
+            this.nachEingabe.Location = new System.Drawing.Point(32, 198);
+            this.nachEingabe.Name = "nachEingabe";
+            this.nachEingabe.Size = new System.Drawing.Size(292, 33);
+            this.nachEingabe.TabIndex = 19;
+            this.nachEingabe.TextChanged += new System.EventHandler(this.nachEingabe_TextChanged);
+            // 
+            // autocompleteVia
+            // 
+            this.autocompleteVia.AutoSize = true;
+            this.autocompleteVia.Location = new System.Drawing.Point(100, 377);
+            this.autocompleteVia.Name = "autocompleteVia";
+            this.autocompleteVia.Size = new System.Drawing.Size(175, 29);
+            this.autocompleteVia.TabIndex = 18;
+            this.autocompleteVia.Text = "Autocomplete";
+            this.autocompleteVia.UseVisualStyleBackColor = true;
+            // 
+            // autocompleteNach
+            // 
+            this.autocompleteNach.AutoSize = true;
+            this.autocompleteNach.Location = new System.Drawing.Point(100, 248);
+            this.autocompleteNach.Name = "autocompleteNach";
+            this.autocompleteNach.Size = new System.Drawing.Size(175, 29);
+            this.autocompleteNach.TabIndex = 17;
+            this.autocompleteNach.Text = "Autocomplete";
+            this.autocompleteNach.UseVisualStyleBackColor = true;
+            // 
+            // viaCheckBox
+            // 
+            this.viaCheckBox.AutoSize = true;
+            this.viaCheckBox.Location = new System.Drawing.Point(32, 303);
+            this.viaCheckBox.Name = "viaCheckBox";
+            this.viaCheckBox.Size = new System.Drawing.Size(75, 29);
+            this.viaCheckBox.TabIndex = 16;
+            this.viaCheckBox.Text = "Via";
+            this.viaCheckBox.UseVisualStyleBackColor = true;
+            this.viaCheckBox.CheckedChanged += new System.EventHandler(this.viaCheckBox_CheckedChanged);
             // 
             // emailhint
             // 
@@ -102,15 +146,15 @@
             this.emailhint.TabIndex = 15;
             this.emailhint.TabStop = false;
             // 
-            // autocomplete
+            // autocompleteVonn
             // 
-            this.autocomplete.AutoSize = true;
-            this.autocomplete.Location = new System.Drawing.Point(100, 103);
-            this.autocomplete.Name = "autocomplete";
-            this.autocomplete.Size = new System.Drawing.Size(175, 29);
-            this.autocomplete.TabIndex = 14;
-            this.autocomplete.Text = "Autocomplete";
-            this.autocomplete.UseVisualStyleBackColor = true;
+            this.autocompleteVonn.AutoSize = true;
+            this.autocompleteVonn.Location = new System.Drawing.Point(100, 103);
+            this.autocompleteVonn.Name = "autocompleteVonn";
+            this.autocompleteVonn.Size = new System.Drawing.Size(175, 29);
+            this.autocompleteVonn.TabIndex = 14;
+            this.autocompleteVonn.Text = "Autocomplete";
+            this.autocompleteVonn.UseVisualStyleBackColor = true;
             // 
             // openKarte
             // 
@@ -133,35 +177,35 @@
             this.searchStation.UseVisualStyleBackColor = true;
             this.searchStation.Click += new System.EventHandler(this.SearchStation_Click);
             // 
-            // tbVon
+            // vonEingabe
             // 
-            this.tbVon.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.tbVon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.tbVon.FormattingEnabled = true;
-            this.tbVon.Location = new System.Drawing.Point(31, 57);
-            this.tbVon.Name = "tbVon";
-            this.tbVon.Size = new System.Drawing.Size(293, 33);
-            this.tbVon.TabIndex = 11;
-            this.tbVon.TextChanged += new System.EventHandler(this.TbVon_TextChanged);
+            this.vonEingabe.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.vonEingabe.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.vonEingabe.FormattingEnabled = true;
+            this.vonEingabe.Location = new System.Drawing.Point(31, 57);
+            this.vonEingabe.Name = "vonEingabe";
+            this.vonEingabe.Size = new System.Drawing.Size(293, 33);
+            this.vonEingabe.TabIndex = 11;
+            this.vonEingabe.TextChanged += new System.EventHandler(this.TbVon_TextChanged);
             // 
-            // LBverbindungen
+            // verbindungenTafel
             // 
-            this.LBverbindungen.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.LBverbindungen.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup5.Header = "ListViewGroup";
-            listViewGroup5.Name = "listViewGroup1";
-            this.LBverbindungen.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup5});
-            this.LBverbindungen.Location = new System.Drawing.Point(342, 185);
-            this.LBverbindungen.Name = "LBverbindungen";
-            this.LBverbindungen.Size = new System.Drawing.Size(1429, 665);
-            this.LBverbindungen.TabIndex = 10;
-            this.LBverbindungen.UseCompatibleStateImageBehavior = false;
-            this.LBverbindungen.DoubleClick += new System.EventHandler(this.LBverbindungen_DoubleClick);
+            this.verbindungenTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.verbindungenTafel.BackColor = System.Drawing.SystemColors.HighlightText;
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup1";
+            this.verbindungenTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup4});
+            this.verbindungenTafel.Location = new System.Drawing.Point(342, 185);
+            this.verbindungenTafel.Name = "verbindungenTafel";
+            this.verbindungenTafel.Size = new System.Drawing.Size(1429, 665);
+            this.verbindungenTafel.TabIndex = 10;
+            this.verbindungenTafel.UseCompatibleStateImageBehavior = false;
+            this.verbindungenTafel.DoubleClick += new System.EventHandler(this.LBverbindungen_DoubleClick);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(31, 838);
+            this.btnSearch.Location = new System.Drawing.Point(31, 802);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(244, 48);
             this.btnSearch.TabIndex = 8;
@@ -169,37 +213,22 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // dTPTime
+            // DateTimeEingabe
             // 
-            this.dTPTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dTPTime.Location = new System.Drawing.Point(31, 423);
-            this.dTPTime.Name = "dTPTime";
-            this.dTPTime.Size = new System.Drawing.Size(293, 31);
-            this.dTPTime.TabIndex = 7;
+            this.DateTimeEingabe.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DateTimeEingabe.Location = new System.Drawing.Point(31, 461);
+            this.DateTimeEingabe.Name = "DateTimeEingabe";
+            this.DateTimeEingabe.Size = new System.Drawing.Size(293, 31);
+            this.DateTimeEingabe.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 395);
+            this.label3.Location = new System.Drawing.Point(27, 433);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 25);
             this.label3.TabIndex = 6;
             this.label3.Text = "Abfahrt";
-            // 
-            // tbVia
-            // 
-            this.tbVia.Enabled = false;
-            this.tbVia.Location = new System.Drawing.Point(31, 318);
-            this.tbVia.Name = "tbVia";
-            this.tbVia.Size = new System.Drawing.Size(293, 31);
-            this.tbVia.TabIndex = 5;
-            // 
-            // tbNach
-            // 
-            this.tbNach.Location = new System.Drawing.Point(30, 198);
-            this.tbNach.Name = "tbNach";
-            this.tbNach.Size = new System.Drawing.Size(293, 31);
-            this.tbNach.TabIndex = 3;
             // 
             // label1
             // 
@@ -224,7 +253,7 @@
             this.lkfahrplan.Controls.Add(this.searchStationAF);
             this.lkfahrplan.Controls.Add(this.searchStations);
             this.lkfahrplan.Controls.Add(this.label4);
-            this.lkfahrplan.Controls.Add(this.searchStations2);
+            this.lkfahrplan.Controls.Add(this.searchStationen);
             this.lkfahrplan.Controls.Add(this.abfahrtsTafel);
             this.lkfahrplan.Location = new System.Drawing.Point(8, 39);
             this.lkfahrplan.Name = "lkfahrplan";
@@ -263,40 +292,39 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Von";
             // 
-            // searchStations2
+            // searchStationen
             // 
-            this.searchStations2.Location = new System.Drawing.Point(11, 309);
-            this.searchStations2.Name = "searchStations2";
-            this.searchStations2.Size = new System.Drawing.Size(244, 48);
-            this.searchStations2.TabIndex = 12;
-            this.searchStations2.Text = "Suchen";
-            this.searchStations2.UseVisualStyleBackColor = true;
-            this.searchStations2.Click += new System.EventHandler(this.SearchVerbindungen_Click);
+            this.searchStationen.Location = new System.Drawing.Point(11, 309);
+            this.searchStationen.Name = "searchStationen";
+            this.searchStationen.Size = new System.Drawing.Size(244, 48);
+            this.searchStationen.TabIndex = 12;
+            this.searchStationen.Text = "Suchen";
+            this.searchStationen.UseVisualStyleBackColor = true;
+            this.searchStationen.Click += new System.EventHandler(this.SearchVerbindungen_Click);
             // 
             // abfahrtsTafel
             // 
             this.abfahrtsTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.abfahrtsTafel.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup6.Header = "ListViewGroup";
-            listViewGroup6.Name = "listViewGroup1";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup1";
             this.abfahrtsTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6});
+            listViewGroup3});
             this.abfahrtsTafel.Location = new System.Drawing.Point(274, 53);
             this.abfahrtsTafel.Name = "abfahrtsTafel";
             this.abfahrtsTafel.Size = new System.Drawing.Size(1569, 798);
             this.abfahrtsTafel.TabIndex = 11;
             this.abfahrtsTafel.UseCompatibleStateImageBehavior = false;
             // 
-            // viaCheckBox
+            // viaEingabe
             // 
-            this.viaCheckBox.AutoSize = true;
-            this.viaCheckBox.Location = new System.Drawing.Point(32, 283);
-            this.viaCheckBox.Name = "viaCheckBox";
-            this.viaCheckBox.Size = new System.Drawing.Size(75, 29);
-            this.viaCheckBox.TabIndex = 16;
-            this.viaCheckBox.Text = "Via";
-            this.viaCheckBox.UseVisualStyleBackColor = true;
-            this.viaCheckBox.CheckedChanged += new System.EventHandler(this.viaCheckBox_CheckedChanged);
+            this.viaEingabe.Enabled = false;
+            this.viaEingabe.FormattingEnabled = true;
+            this.viaEingabe.Location = new System.Drawing.Point(32, 338);
+            this.viaEingabe.Name = "viaEingabe";
+            this.viaEingabe.Size = new System.Drawing.Size(292, 33);
+            this.viaEingabe.TabIndex = 20;
+            this.viaEingabe.TextChanged += new System.EventHandler(this.ViaEingabe_TextChanged);
             // 
             // OevVerbindungen
             // 
@@ -321,25 +349,27 @@
         private System.Windows.Forms.TabControl menu;
         private System.Windows.Forms.TabPage fahrplan;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DateTimePicker dTPTime;
+        private System.Windows.Forms.DateTimePicker DateTimeEingabe;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbVia;
-        private System.Windows.Forms.TextBox tbNach;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblVon;
         private System.Windows.Forms.TabPage lkfahrplan;
-        private System.Windows.Forms.ListView LBverbindungen;
-        private System.Windows.Forms.Button searchStations2;
+        private System.Windows.Forms.ListView verbindungenTafel;
+        private System.Windows.Forms.Button searchStationen;
         private System.Windows.Forms.ListView abfahrtsTafel;
-        private System.Windows.Forms.ComboBox tbVon;
+        private System.Windows.Forms.ComboBox vonEingabe;
         private System.Windows.Forms.Button searchStation;
         private System.Windows.Forms.Button searchStationAF;
         private System.Windows.Forms.ComboBox searchStations;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel openKarte;
-        private System.Windows.Forms.CheckBox autocomplete;
+        private System.Windows.Forms.CheckBox autocompleteVonn;
         private System.Windows.Forms.PictureBox emailhint;
         private System.Windows.Forms.CheckBox viaCheckBox;
+        private System.Windows.Forms.CheckBox autocompleteVia;
+        private System.Windows.Forms.CheckBox autocompleteNach;
+        private System.Windows.Forms.ComboBox nachEingabe;
+        private System.Windows.Forms.ComboBox viaEingabe;
     }
 }
 

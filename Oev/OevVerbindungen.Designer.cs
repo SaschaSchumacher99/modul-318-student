@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.menu = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
             this.viaEingabe = new System.Windows.Forms.ComboBox();
@@ -113,7 +113,7 @@
             this.nachEingabe.Name = "nachEingabe";
             this.nachEingabe.Size = new System.Drawing.Size(292, 33);
             this.nachEingabe.TabIndex = 2;
-            this.nachEingabe.TextChanged += new System.EventHandler(this.nachEingabe_TextChanged);
+            this.nachEingabe.TextChanged += new System.EventHandler(this.NachEingabe_TextChanged);
             // 
             // autocompleteVia
             // 
@@ -144,7 +144,7 @@
             this.viaCheckBox.TabIndex = 3;
             this.viaCheckBox.Text = "Via";
             this.viaCheckBox.UseVisualStyleBackColor = true;
-            this.viaCheckBox.CheckedChanged += new System.EventHandler(this.viaCheckBox_CheckedChanged);
+            this.viaCheckBox.CheckedChanged += new System.EventHandler(this.ViaCheckBox_CheckedChanged);
             // 
             // emailhint
             // 
@@ -202,10 +202,10 @@
             // 
             this.verbindungenTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.verbindungenTafel.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup1";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "listViewGroup1";
             this.verbindungenTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
+            listViewGroup1});
             this.verbindungenTafel.Location = new System.Drawing.Point(342, 185);
             this.verbindungenTafel.Name = "verbindungenTafel";
             this.verbindungenTafel.Size = new System.Drawing.Size(1429, 665);
@@ -221,7 +221,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Suchen";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // DateTimeEingabe
             // 
@@ -292,6 +292,7 @@
             this.searchStations.Name = "searchStations";
             this.searchStations.Size = new System.Drawing.Size(244, 33);
             this.searchStations.TabIndex = 14;
+            this.searchStations.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchStations_KeyDown);
             // 
             // label4
             // 
@@ -316,10 +317,10 @@
             // 
             this.abfahrtsTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.abfahrtsTafel.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.Name = "listViewGroup1";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
             this.abfahrtsTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4});
+            listViewGroup2});
             this.abfahrtsTafel.Location = new System.Drawing.Point(274, 53);
             this.abfahrtsTafel.Name = "abfahrtsTafel";
             this.abfahrtsTafel.Size = new System.Drawing.Size(1569, 798);
@@ -334,6 +335,7 @@
             this.Controls.Add(this.menu);
             this.Name = "OevVerbindungen";
             this.Text = "Öv Verbindungen ";
+            this.Load += new System.EventHandler(this.OevVerbindungen_Load);
             this.menu.ResumeLayout(false);
             this.fahrplan.ResumeLayout(false);
             this.fahrplan.PerformLayout();

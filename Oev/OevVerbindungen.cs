@@ -18,6 +18,7 @@ namespace Oev
         private ITransport transport;
         private bool needAutoCompleteUpdate = false;
         private ErrorHandling errors;
+        private CheckConnection checkconnection;
 
         public OevVerbindungen()
         {
@@ -26,7 +27,10 @@ namespace Oev
             LoadToolTip();
             transport = new Transport();
             errors = new ErrorHandling();
+            checkconnection = new CheckConnection();
             InitDateTimePicker();
+
+            
 
         }
         public void LoadToolTip()
@@ -64,7 +68,7 @@ namespace Oev
             DateTimeEingabe.CustomFormat = "dd.MM.yyyy | HH:mm";
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
             verbindungenTafel.Items.Clear();
 
@@ -206,7 +210,7 @@ namespace Oev
                         );
         }
 
-        private void viaCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void ViaCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (viaCheckBox.Checked)
             {
@@ -244,7 +248,7 @@ namespace Oev
                 }
             }
         }
-        private void nachEingabe_TextChanged(object sender, EventArgs e)
+        private void NachEingabe_TextChanged(object sender, EventArgs e)
         {
             AutoSearch(autocompleteNach, nachEingabe);
         }
@@ -252,6 +256,22 @@ namespace Oev
         private void ViaEingabe_TextChanged(object sender, EventArgs e)
         {
             AutoSearch(autocompleteVia, viaEingabe);
+        }
+
+        private void SearchStations_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchVerbindungen_Click((object)sender, (EventArgs)e);
+            }
+        }
+
+        private void OevVerbindungen_Load(object sender, EventArgs e)
+        {
+            if (!checkconnection.CheckForInternetConnection())
+            {
+                errors.ShowError("Du hast zurzeit kein Internet!", "Kein Internet");
+            }
         }
     }
 }

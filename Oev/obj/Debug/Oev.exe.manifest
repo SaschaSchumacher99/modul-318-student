@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Oev.exe" size="36896">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Oev.exe" size="37920">
       <assemblyIdentity name="Oev" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/BbIiQ/g4HweuEz6c4HKpF/717rbGP4+Mz7A6Rkyevc=</dsig:DigestValue>
+        <dsig:DigestValue>E28voHjKolahkqsrjz/vs3S3qQ1mGsLSVNp0ku8pSk4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

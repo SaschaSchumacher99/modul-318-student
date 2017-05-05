@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckConnection.cs" />
     <Compile Include="ErrorHandling.cs" />
     <Compile Include="OevVerbindungen.cs">
       <SubType>Form</SubType>

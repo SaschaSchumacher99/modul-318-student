@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
             this.emailhint = new System.Windows.Forms.PictureBox();
@@ -65,7 +65,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1906, 1156);
+            this.tabControl1.Size = new System.Drawing.Size(1894, 960);
             this.tabControl1.TabIndex = 1;
             // 
             // fahrplan
@@ -87,7 +87,7 @@
             this.fahrplan.Location = new System.Drawing.Point(8, 39);
             this.fahrplan.Name = "fahrplan";
             this.fahrplan.Padding = new System.Windows.Forms.Padding(3);
-            this.fahrplan.Size = new System.Drawing.Size(1890, 1109);
+            this.fahrplan.Size = new System.Drawing.Size(1878, 913);
             this.fahrplan.TabIndex = 0;
             this.fahrplan.Text = "Fahrplan";
             this.fahrplan.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // emailhint
             // 
             this.emailhint.Image = global::Oev.Properties.Resources.email;
-            this.emailhint.Location = new System.Drawing.Point(1744, 892);
+            this.emailhint.Location = new System.Drawing.Point(1777, 786);
             this.emailhint.Name = "emailhint";
             this.emailhint.Size = new System.Drawing.Size(80, 64);
             this.emailhint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -125,7 +125,7 @@
             // 
             // searchStation
             // 
-            this.searchStation.Location = new System.Drawing.Point(408, 57);
+            this.searchStation.Location = new System.Drawing.Point(342, 57);
             this.searchStation.Name = "searchStation";
             this.searchStation.Size = new System.Drawing.Size(187, 61);
             this.searchStation.TabIndex = 12;
@@ -148,13 +148,13 @@
             // 
             this.LBverbindungen.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.LBverbindungen.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "listViewGroup1";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup1";
             this.LBverbindungen.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
-            this.LBverbindungen.Location = new System.Drawing.Point(408, 221);
+            listViewGroup3});
+            this.LBverbindungen.Location = new System.Drawing.Point(342, 185);
             this.LBverbindungen.Name = "LBverbindungen";
-            this.LBverbindungen.Size = new System.Drawing.Size(1416, 665);
+            this.LBverbindungen.Size = new System.Drawing.Size(1429, 665);
             this.LBverbindungen.TabIndex = 10;
             this.LBverbindungen.UseCompatibleStateImageBehavior = false;
             this.LBverbindungen.DoubleClick += new System.EventHandler(this.LBverbindungen_DoubleClick);
@@ -204,7 +204,7 @@
             // 
             // tbNach
             // 
-            this.tbNach.Location = new System.Drawing.Point(31, 198);
+            this.tbNach.Location = new System.Drawing.Point(30, 198);
             this.tbNach.Name = "tbNach";
             this.tbNach.Size = new System.Drawing.Size(293, 31);
             this.tbNach.TabIndex = 3;
@@ -212,7 +212,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 170);
+            this.label1.Location = new System.Drawing.Point(25, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 25);
             this.label1.TabIndex = 2;
@@ -237,14 +237,14 @@
             this.lkfahrplan.Location = new System.Drawing.Point(8, 39);
             this.lkfahrplan.Name = "lkfahrplan";
             this.lkfahrplan.Padding = new System.Windows.Forms.Padding(3);
-            this.lkfahrplan.Size = new System.Drawing.Size(1890, 1109);
+            this.lkfahrplan.Size = new System.Drawing.Size(1878, 913);
             this.lkfahrplan.TabIndex = 1;
             this.lkfahrplan.Text = "Abfahrsfahrplan";
             this.lkfahrplan.UseVisualStyleBackColor = true;
             // 
             // searchStationAF
             // 
-            this.searchStationAF.Location = new System.Drawing.Point(276, 53);
+            this.searchStationAF.Location = new System.Drawing.Point(11, 103);
             this.searchStationAF.Name = "searchStationAF";
             this.searchStationAF.Size = new System.Drawing.Size(223, 57);
             this.searchStationAF.TabIndex = 15;
@@ -273,7 +273,7 @@
             // 
             // searchStations2
             // 
-            this.searchStations2.Location = new System.Drawing.Point(11, 531);
+            this.searchStations2.Location = new System.Drawing.Point(11, 309);
             this.searchStations2.Name = "searchStations2";
             this.searchStations2.Size = new System.Drawing.Size(244, 48);
             this.searchStations2.TabIndex = 12;
@@ -285,13 +285,13 @@
             // 
             this.abfahrtsTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.abfahrtsTafel.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "listViewGroup1";
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup1";
             this.abfahrtsTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
-            this.abfahrtsTafel.Location = new System.Drawing.Point(276, 211);
+            listViewGroup4});
+            this.abfahrtsTafel.Location = new System.Drawing.Point(274, 53);
             this.abfahrtsTafel.Name = "abfahrtsTafel";
-            this.abfahrtsTafel.Size = new System.Drawing.Size(1414, 502);
+            this.abfahrtsTafel.Size = new System.Drawing.Size(1569, 798);
             this.abfahrtsTafel.TabIndex = 11;
             this.abfahrtsTafel.UseCompatibleStateImageBehavior = false;
             // 
@@ -299,7 +299,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1910, 1163);
+            this.ClientSize = new System.Drawing.Size(1894, 961);
             this.Controls.Add(this.tabControl1);
             this.Name = "OevVerbindungen";
             this.Text = "Öv Verbindungen ";

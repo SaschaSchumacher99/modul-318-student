@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.menu = new System.Windows.Forms.TabControl();
             this.fahrplan = new System.Windows.Forms.TabPage();
+            this.viaEingabe = new System.Windows.Forms.ComboBox();
             this.nachEingabe = new System.Windows.Forms.ComboBox();
             this.autocompleteVia = new System.Windows.Forms.CheckBox();
             this.autocompleteNach = new System.Windows.Forms.CheckBox();
@@ -53,7 +54,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.searchStationen = new System.Windows.Forms.Button();
             this.abfahrtsTafel = new System.Windows.Forms.ListView();
-            this.viaEingabe = new System.Windows.Forms.ComboBox();
             this.menu.SuspendLayout();
             this.fahrplan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emailhint)).BeginInit();
@@ -96,13 +96,23 @@
             this.fahrplan.Text = "Fahrplan";
             this.fahrplan.UseVisualStyleBackColor = true;
             // 
+            // viaEingabe
+            // 
+            this.viaEingabe.Enabled = false;
+            this.viaEingabe.FormattingEnabled = true;
+            this.viaEingabe.Location = new System.Drawing.Point(32, 338);
+            this.viaEingabe.Name = "viaEingabe";
+            this.viaEingabe.Size = new System.Drawing.Size(292, 33);
+            this.viaEingabe.TabIndex = 4;
+            this.viaEingabe.TextChanged += new System.EventHandler(this.ViaEingabe_TextChanged);
+            // 
             // nachEingabe
             // 
             this.nachEingabe.FormattingEnabled = true;
             this.nachEingabe.Location = new System.Drawing.Point(32, 198);
             this.nachEingabe.Name = "nachEingabe";
             this.nachEingabe.Size = new System.Drawing.Size(292, 33);
-            this.nachEingabe.TabIndex = 19;
+            this.nachEingabe.TabIndex = 2;
             this.nachEingabe.TextChanged += new System.EventHandler(this.nachEingabe_TextChanged);
             // 
             // autocompleteVia
@@ -131,7 +141,7 @@
             this.viaCheckBox.Location = new System.Drawing.Point(32, 303);
             this.viaCheckBox.Name = "viaCheckBox";
             this.viaCheckBox.Size = new System.Drawing.Size(75, 29);
-            this.viaCheckBox.TabIndex = 16;
+            this.viaCheckBox.TabIndex = 3;
             this.viaCheckBox.Text = "Via";
             this.viaCheckBox.UseVisualStyleBackColor = true;
             this.viaCheckBox.CheckedChanged += new System.EventHandler(this.viaCheckBox_CheckedChanged);
@@ -185,17 +195,17 @@
             this.vonEingabe.Location = new System.Drawing.Point(31, 57);
             this.vonEingabe.Name = "vonEingabe";
             this.vonEingabe.Size = new System.Drawing.Size(293, 33);
-            this.vonEingabe.TabIndex = 11;
+            this.vonEingabe.TabIndex = 1;
             this.vonEingabe.TextChanged += new System.EventHandler(this.TbVon_TextChanged);
             // 
             // verbindungenTafel
             // 
             this.verbindungenTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.verbindungenTafel.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.Name = "listViewGroup1";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "listViewGroup1";
             this.verbindungenTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4});
+            listViewGroup3});
             this.verbindungenTafel.Location = new System.Drawing.Point(342, 185);
             this.verbindungenTafel.Name = "verbindungenTafel";
             this.verbindungenTafel.Size = new System.Drawing.Size(1429, 665);
@@ -219,7 +229,7 @@
             this.DateTimeEingabe.Location = new System.Drawing.Point(31, 461);
             this.DateTimeEingabe.Name = "DateTimeEingabe";
             this.DateTimeEingabe.Size = new System.Drawing.Size(293, 31);
-            this.DateTimeEingabe.TabIndex = 7;
+            this.DateTimeEingabe.TabIndex = 5;
             // 
             // label3
             // 
@@ -306,25 +316,15 @@
             // 
             this.abfahrtsTafel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.abfahrtsTafel.BackColor = System.Drawing.SystemColors.HighlightText;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "listViewGroup1";
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "listViewGroup1";
             this.abfahrtsTafel.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
+            listViewGroup4});
             this.abfahrtsTafel.Location = new System.Drawing.Point(274, 53);
             this.abfahrtsTafel.Name = "abfahrtsTafel";
             this.abfahrtsTafel.Size = new System.Drawing.Size(1569, 798);
             this.abfahrtsTafel.TabIndex = 11;
             this.abfahrtsTafel.UseCompatibleStateImageBehavior = false;
-            // 
-            // viaEingabe
-            // 
-            this.viaEingabe.Enabled = false;
-            this.viaEingabe.FormattingEnabled = true;
-            this.viaEingabe.Location = new System.Drawing.Point(32, 338);
-            this.viaEingabe.Name = "viaEingabe";
-            this.viaEingabe.Size = new System.Drawing.Size(292, 33);
-            this.viaEingabe.TabIndex = 20;
-            this.viaEingabe.TextChanged += new System.EventHandler(this.ViaEingabe_TextChanged);
             // 
             // OevVerbindungen
             // 

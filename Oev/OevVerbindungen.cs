@@ -68,20 +68,23 @@ namespace Oev
         {
             verbindungenTafel.Items.Clear();
 
-            String inputTime = DateTimeEingabe.Text;
+            String inputTime = errors.CheckInput(DateTimeEingabe.Text, "Datum");
             var date = DateTime.Parse(inputTime.Substring(0, 10));
             String formattetDate = date.ToString("yyyy-MM-dd");
             String time = inputTime.Substring(12, 6);
-            String via = viaEingabe.Text;
             Connections connections = new Connections();
+
+            String fromStation = errors.CheckInput(vonEingabe.Text, "Von");
+            String toStation = errors.CheckInput(nachEingabe.Text, "Nach");
 
             if (viaCheckBox.Checked)
             {
-                connections = transport.GetConnections(vonEingabe.Text, nachEingabe.Text, formattetDate, time, via);
+                String via = errors.CheckInput(viaEingabe.Text, "Via");
+                connections = transport.GetConnections(fromStation, toStation, formattetDate, time, via);
             }
             else
             {
-                connections = transport.GetConnections(vonEingabe.Text, nachEingabe.Text, formattetDate, time);
+                connections = transport.GetConnections(fromStation, toStation, formattetDate, time);
             }
             if (errors.IsConnectionsNull(connections))
             {

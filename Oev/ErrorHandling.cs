@@ -18,6 +18,23 @@ namespace Oev
         {
             MessageBox.Show(errorMessage, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        private void ShowWarning(String warningMessage,String title)
+        {
+            MessageBox.Show(warningMessage, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public String CheckInput(String input,String feldname)
+        {
+            String result = input.Trim();
+            
+            if(result == "")
+            {
+                ShowWarning("Bitte das " + feldname + " Feld ausfüllen.","Feld ist leer!");
+            }
+
+            return result;
+
+        }
+
         public Boolean IsStationsNull(Stations stations)
         {
             return stations != null;

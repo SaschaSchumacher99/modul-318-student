@@ -86,9 +86,9 @@ namespace Oev
             if (errors.IsConnectionsNull(connections))
             {
 
-                for (int i = 0; i < connections.ConnectionList.Count; i++)
+                foreach (var result in connections.ConnectionList)
                 {
-                    Connection result = connections.ConnectionList[i];
+                 
                     ConnectionPoint from = result.From;
                     ConnectionPoint to = result.To;
 
